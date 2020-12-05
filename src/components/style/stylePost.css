@@ -5,3 +5,8 @@
 .post-body {
     color: #130086;
 }
+.selected-post{
+    background: #7be741;
+    color: #0808b3;
+    text-align: center;
+}
