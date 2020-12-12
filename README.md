@@ -1,5 +1,5 @@
 # React-Projects
-Lesson 2
+Lesson 3
 
 Switch between branches to see all projects
 
