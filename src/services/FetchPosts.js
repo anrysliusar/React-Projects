@@ -16,10 +16,9 @@ export class FetchPosts {
 
     async fetchPosts(num) {
         let arrOfPosts = []
-        for (let i = 0; i < num; i++) {
-            let post = await this.fetchPostById(this.idStart)
+        for (let i = 1; i <= num; i++) {
+            let post = await this.fetchPostById(i)
             arrOfPosts.push(post)
-            this.idStart++
         }
         return arrOfPosts
     }
