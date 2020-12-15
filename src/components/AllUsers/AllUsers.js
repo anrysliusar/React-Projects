@@ -12,8 +12,10 @@ import {
 import FullUser from "./WholeUsers";
 
 class AllUsers extends Component {
+
     userService = new UserServices()
     state = {users: []}
+
     async componentDidMount() {
         let users = await this.userService.users()
         this.setState({users})
@@ -21,21 +23,20 @@ class AllUsers extends Component {
 
     render() {
         let {users} = this.state
-        let { match: {url} } = this.props
+        let {match: {url}} = this.props
         return (
             <div>
                 {
-                    users.map(user => <User user={user} key={user.id} />)
+                    users.map(user => <User user={user} key={user.id}/>)
                 }
-
+                <hr/>
                 <div>
-                    <Switch>
-                        <Route path={`${url}/:id`} render={(props) => {
-                            let {match: {params: {id}}} = props
-                            return <FullUser id={id} />
-                        }
-                        } />
-                    </Switch>
+                    <Route path={`${url}/:id`} render={(props) => {
+
+                        let {match: {params: {id}}} = props
+
+                        return <FullUser key={id} id={id}/>
+                    }}/>
                 </div>
             </div>
         );
